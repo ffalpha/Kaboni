@@ -70,6 +70,14 @@
      
                     </div>
                 </div>
+                
+                                 <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-success">
+                       <div class="panel-body" style=" background-color: #e8c62f;"><center>    <img src="../admin/images/teamwork.png" class="card-img-top" alt="..."><br>
+    <a href="#" class="btn btn-danger stretched-link">Team</a>  </center></div>
+     
+                    </div>
+                </div>
               </div>
 <!--
 <table class="table">
