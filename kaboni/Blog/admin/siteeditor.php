@@ -53,8 +53,8 @@
                 </div>
                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-success">
-                       <div class="panel-body" style=" background-color: #e8c62f;"><center>    <img src="../admin/images/teamwork.png" class="card-img-top" alt="..."><br>
-    <a href="#" class="btn btn-danger stretched-link">Team</a>  </center></div>
+                       <div class="panel-body" style=" background-color: #1452b5;"><center>    <img src="../admin/images/smarthome.png" class="card-img-top" alt="..."><br>
+    <a href="#" class="btn btn-danger stretched-link">Splash Screen</a>  </center></div>
      
                     </div>
                 </div>
@@ -66,15 +66,15 @@
                         <div class="col-lg-3 col-md-6">
                     <div class="panel panel-success">
                        <div class="panel-body" style=" background-color: #e8c62f;"><center>    <img src="../admin/images/teamwork.png" class="card-img-top" alt="..."><br>
-    <a href="#" class="btn btn-danger stretched-link">Team</a>  </center></div>
+    <a href="#" class="btn btn-danger stretched-link">Profillo</a>  </center></div>
      
                     </div>
                 </div>
                 
                                  <div class="col-lg-3 col-md-6">
                     <div class="panel panel-success">
-                       <div class="panel-body" style=" background-color: #e8c62f;"><center>    <img src="../admin/images/teamwork.png" class="card-img-top" alt="..."><br>
-    <a href="#" class="btn btn-danger stretched-link">Team</a>  </center></div>
+                       <div class="panel-body" style=" background-color: #f5429e;"><center>    <img src="../admin/images/video.png" class="card-img-top" alt="..."><br>
+    <a href="./mainslider.php" class="btn btn-danger stretched-link">Main Slider</a>  </center></div>
      
                     </div>
                 </div>

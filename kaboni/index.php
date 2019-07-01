@@ -284,23 +284,33 @@ session_start(); ?>
     <!-- Indicators -->
 
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+        <?php
+        $query="SELECT * FROM mainslider";
+        $result=mysqli_query($connect,$query);
+        $i=0;
+        while($row=mysqli_fetch_assoc($result))
+        {  
+        ?>
+      <li data-target="#myCarousel" data-slide-to="<?php echo $i ?>" ></li>
+       <?php $i=$i+1;} ?>
     </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+      
       <div class="item active">
-        <img src="assets/img/Logo.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="assets/img/slider/Logo.jpg" alt="picture" style="width:100%;">
       </div>
-
-      <div class="item">
-        <img src="assets/img/Logo2.jpg" alt="Chicago" style="width:100%;">
+        <?php
+        $query="SELECT * FROM mainslider";
+        $result=mysqli_query($connect,$query);
+        while($row=mysqli_fetch_assoc($result))
+        {
+        ?>
+    <?php if ($row['image']== "Logo.jpg" ) continue; ?>
+      <div class="item ">
+        <img src="assets/img/slider/<?php echo $row['image']?>" alt="picture" style="width:100%;">
       </div>
-    
-      <div class="item">
-        <img src="assets/img/Logo3.jpg" alt="New york" style="width:100%;">
-      </div>
+    <?php } ?>
     </div>
 
               
