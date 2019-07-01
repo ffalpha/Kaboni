@@ -8,7 +8,7 @@
         $query="SELECT * FROM album";
         $result=mysqli_query($connect,$query);
         while($row=mysqli_fetch_assoc($result))
-        {  if($row['privacy']!="Private"){
+        {  
         ?>
         <form action="#" method="post">
             <input type="hidden"  name="filename" value="<?php echo $row['name'];?>">
@@ -18,7 +18,7 @@
         </form>
 
 
-        <?php } }?>
+        <?php  }?>
         <?php
         if(isset($_POST['delete'])){
             $id=$_POST['filename'];

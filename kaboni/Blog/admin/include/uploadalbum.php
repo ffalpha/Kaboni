@@ -78,7 +78,7 @@ function createtable(){
     )";
     $result=mysqli_query($connect,$query);
     confirm($result);
-    $query1="INSERT INTO album(user,name,date) values('{$_POST['user']}','{$name}',now())"; //Inserting the album data the alubm table
+    $query1="INSERT INTO album(user,name,date,privacy) values('{$_POST['user']}','{$name}',now(),'{$_POST['privacy']}')"; //Inserting the album data the alubm table
     $result1=mysqli_query($connect,$query1);
     confirm($result1);
 
@@ -101,6 +101,15 @@ function createtable(){
         <label for="title">Authorized Viewer</label>
         <input type="text" class="form-control" name="user">  
     </div>
+      <div class="form-group">
+        <label for="title">Privacy Level</label>
+            <select name="privacy" id="privacy"> 
+                    <option value='Public'>Public</option>
+                    <option value='Private'>Private</option>
+        </select> 
+    </div>
+    
+   
     <div class="form-group">
         <label for="title">Album Images</label>
         <input type="file"  class="btn btn-primary"  name="imagefiles[]" multiple>  
