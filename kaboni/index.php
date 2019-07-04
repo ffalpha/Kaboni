@@ -344,11 +344,11 @@ session_start(); ?>
             <div class=heading><i class="hidden-xs ion-ios-camera-outline"></i>
                 <h2>Gallery</h2></div>
         </div>
-        <div class="menu_button faq-btn" data-url_target=faq>
+         <div class="menu_button faq-btn" >
             <div class=mask style=background-image:url(assets/img/navigation/faq.jpg)></div>
             <div class=heading><i class="hidden-xs ion-ios-chatboxes-outline"></i>
-                <h2>Blog</h2></div>
-        </div>
+               <a href="./Blog/index.php" style="color: #000000"> <h2>Blog</h2></div></a>
+           </div>
         <div class="menu_button contact-btn" data-url_target=contact>
             <div class=mask style=background-image:url(assets/img/navigation/contact.jpg)></div>
             <div class=heading><i class="hidden-xs ion-ios-email-outline"></i>

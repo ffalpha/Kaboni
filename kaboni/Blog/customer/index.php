@@ -20,21 +20,21 @@ saffsasaffsa
 -->
        <div class="container">
   <div class="row">
-    <div class="col-sm-6" style="background-color:yellow;">
-      <center><img src="./assets/album.png" alt="..."/> <h2>My Albums</h2></centrer> 
-    </div>
-    <div class="col-sm-6" style="background-color:Green;">
+    <a href="albums.php" style="color: #000000"><div class="col-sm-6" style="background-color:yellow;"><br>
+     <center><img src="./assets/album.png" alt="..."/> <h2>My Albums</h2></centrer> 
+    </div></a> 
+   <a href="user.php" style="color:#000000"> <div class="col-sm-6" style="background-color:#20e364;"><br>
         <center><img src="./assets/boy.png" alt="..."/> <h2>My Profile</h2></centrer> 
-    </div>
+    </div></a> 
   </div>
   
    <div class="row">
-    <div class="col-sm-6" style="background-color:Blue;">
-      <center><img src="./assets/album.png" alt="..."/> <h2>My Orders</h2></centrer> 
-    </div>
-    <div class="col-sm-6" style="background-color:pink;">
-      <p>Sed ut perspiciatis...</p>
-    </div>
+   <a href="orders.php" style="color:#000000">  <div class="col-sm-6" style="background-color:#387ff2;"><br>
+      <center><img src="./assets/checklist.png" alt="..."/> <h2>My Orders</h2></centrer> 
+    </div></a>
+   <a href="support.php" style="color:#000000">  <div class="col-sm-6" style="background-color:pink;"><br>
+       <center><img src="./assets/conversation.png" alt="..."/> <h2>My support Tickets</h2></centrer> 
+    </div></a>
   </div>
 </div>
         </div>

@@ -20,27 +20,45 @@
                         <small><?php echo  $_SESSION['first_name'] ?></small>
                     </h1>
 
-                    <?php
+       <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <td>Order Id</td>
+            <td>Order Date</td>
+            <td>Pacakage</td>
+            <td>Order Status</td>
+            <td>Description </td>
+            <td>Change status</td>
+            <td>View payment</td>
+            <td>Cancel the order</td>
+        </tr>
+    </thead>
+    <tbody>
+ <tbody>
 
-                    if(isset($_GET['source'])){
-                        $source=$_GET['source'];
-                    }else{
-                        $source=12;
-                    }
-                    switch($source){
-                        case 'add';
-                            include "include/add_slider.php";
-                            break;
-                        case 'update';
-                            echo "<h1>Update post</h1>";
-                            include "include/edit_slide.php";
-                            break;
-                        default;
-                            include "include/view_allsilder.php";
+        <?php
+      $id =$_SESSION['email'];
+        $query="SELECT * FROM orders where cemail = '$id'";
+        $result=mysqli_query($connect,$query);
+        while($row=mysqli_fetch_assoc($result))
+        {  
+        ?><tr>
+                        <td><?php echo $row['oid']; ?></td>
+                       <td><?php echo $row['date']; ?></td>
+                       <td><?php echo $row['package']; ?></td>
+                       <td><?php echo $row['status']; ?></td>
+                       <td><?php echo $row['description']; ?></td>
+                      <td> <select name="role" id="post_cat"> 
+                    <option value='Order Aproved.Wating for Payment'>Order Aproved.Wating for Payment</option>
+                    <option value='Payment Approved'>Payment Approved</option>
+                    </select><br><br>
+                    <input type="submit"   name="changec" value="Change" class="btn btn-danger" /></td>
+                    <td></td>
+                     <td align="center" class="colcolar"><a href="./orders.php?delete=<?php echo $row['oid'];?>"  ><img src="images/delete.png"   ></a></td> </tr>
+         <?php } ?>
 
-
-                    }
-                    ?>
+    </tbody>
+</table>
 
                 </div>
             </div>

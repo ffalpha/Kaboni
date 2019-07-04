@@ -9,7 +9,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href="../index.php" class="simple-text">
                     Kaboni.lk
                 </a>
             </div>
@@ -34,19 +34,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="orders.php">
                         <i class="pe-7s-news-paper"></i>
-                        <p>My Orders and Reserverations</p>
+                        <p>My Orders </p>
                     </a>
                 </li>
                 <li>
-				
-                    <a href="chat/index.php">
+                    <a href="support.php">
                         <i class="pe-7s-science"></i>
                         <p>My Support Ticket</p>
                     </a>
                 </li>
-               
+                <li>
+                    <a href="./center/index.php">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>My Reserverations</p>
+                    </a>
+                </li>
 			
             </ul>
     	</div>

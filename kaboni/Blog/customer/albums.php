@@ -8,8 +8,10 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">My Albums</h4>
-                                
+                             
+                                     <h2 style="color:#0a3b8a; text-align: center;" class="title">My Albums</h4><br>
+                                  <hr style="  border: 3px solid green;
+                               border-radius: 5px;">  
                             </div>
    
 
@@ -20,7 +22,8 @@
 
     <tr>
         <?php
-        $query="SELECT * FROM album";
+    $id =$_SESSION['email'];
+        $query="SELECT * FROM album where user = '$id'";
         $result=mysqli_query($connect,$query);
         while($row=mysqli_fetch_assoc($result))
         {  if($row['privacy']!="Private"){

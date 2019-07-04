@@ -3,10 +3,9 @@
 
      <?php  
     $email=$_SESSION['email'];
-echo $email;
     $query="Select * from users where uemail= '{$email}'";
     $result=mysqli_query($connect,$query);
-if(!$result){
+    if(!$result){
     echo "Eroror";
 }
  $row=mysqli_fetch_assoc($result);
