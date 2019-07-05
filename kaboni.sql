@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2019 at 12:09 AM
+-- Generation Time: Jul 05, 2019 at 09:16 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -25,12 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ak`
+--
+
+CREATE TABLE `ak` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `imagename` varchar(30) DEFAULT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ak`
+--
+
+INSERT INTO `ak` (`id`, `imagename`, `date`) VALUES
+(1, 'Logo.jpg', '2019-07-02'),
+(4, 'Logo2.jpg', '2019-07-02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `album`
 --
 
 CREATE TABLE `album` (
   `id` int(11) NOT NULL,
-  `privacy` varchar(255) NOT NULL,
+  `privacy` varchar(255) NOT NULL DEFAULT 'Private',
   `user` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `date` date NOT NULL
@@ -41,9 +61,34 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`id`, `privacy`, `user`, `name`, `date`) VALUES
-(5, 'public', 'user1', 'asd', '2019-04-27'),
-(7, '', 'saf', 'Toys', '2019-05-22'),
-(8, '', 'kalanam214@gmail.com', 'Nature', '2019-06-19');
+(5, 'Public', 'user1', 'asd', '2019-04-27'),
+(7, 'Private', 'kalanam214@gmail.com', 'Toys', '2019-05-22'),
+(8, '', 'kalanam214@gmail.com', 'Nature', '2019-06-19'),
+(11, 'Private', 'Kalana', 'ak', '2019-07-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appoinment_data`
+--
+
+CREATE TABLE `appoinment_data` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `contact` int(10) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `datetime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appoinment_data`
+--
+
+INSERT INTO `appoinment_data` (`id`, `name`, `contact`, `email`, `datetime`) VALUES
+(101, 'lahiru', 712902345, 'lahirupathum@gmail.com', '2019-03-28 13:30:00'),
+(100, 'hiruul', 1234567890, 'adfdgghj@gmail.com', '2019-03-29 14:00:00'),
+(100, 'pasindu', 1234567890, 'pasindu@gmail.com', '2019-03-30 12:30:00'),
+(100, 'isuru', 1234567890, 'isuru@gmail.com', '2019-06-26 15:30:00');
 
 -- --------------------------------------------------------
 
@@ -176,6 +221,26 @@ INSERT INTO `gallery` (`Id`, `Image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mainslider`
+--
+
+CREATE TABLE `mainslider` (
+  `pid` int(3) NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mainslider`
+--
+
+INSERT INTO `mainslider` (`pid`, `image`) VALUES
+(1, 'Logo.jpg'),
+(2, 'Logo2.jpg'),
+(3, 'Logo3.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nature`
 --
 
@@ -210,6 +275,36 @@ INSERT INTO `nature` (`id`, `imagename`, `date`) VALUES
 (18, 'photo-1433086966358-54859d0ed7', '2019-06-19'),
 (19, 'photo-1513836279014-a89f7a76ae', '2019-06-19'),
 (20, 'photo-1541535267011-2fad2b4b9f', '2019-06-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `oid` int(11) NOT NULL,
+  `cemail` varchar(225) NOT NULL,
+  `package` varchar(225) NOT NULL,
+  `date` date NOT NULL,
+  `status` varchar(225) NOT NULL,
+  `payment` text NOT NULL,
+  `description` varchar(225) NOT NULL,
+  `fname` varchar(225) NOT NULL,
+  `lname` varchar(225) NOT NULL,
+  `tpnumber` int(12) NOT NULL,
+  `address` varchar(225) NOT NULL,
+  `note` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`oid`, `cemail`, `package`, `date`, `status`, `payment`, `description`, `fname`, `lname`, `tpnumber`, `address`, `note`) VALUES
+(4, 'kalanam214@gmail.com', ' Professional', '0000-00-00', 'Payment add.Wating for approval', '19237904_238639849971671_6039593136646988099_o.jpg', '', '', '', 0, '', 'sssfasfsa'),
+(5, 'kalanam214@gmail.com', 'Basic', '0000-00-00', 'Waiting for conformation\r\n', '', 'sgzbzbzbbx', 'Kalana', '', 0, '', ''),
+(6, 'kalanam214@gmail.com', 'Basic', '2019-07-17', 'Waiting for conformation\r\n', '', 'sfafsfaasf', 'Kalana', 'Mihiranga', 252235451, '', '');
 
 -- --------------------------------------------------------
 
@@ -382,17 +477,29 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`uid`, `upassword`, `ufirstname`, `ulastname`, `urole`, `uemail`, `uimage`, `utnumber`, `address`, `date`, `active`, `current_session`) VALUES
 (1, '$2y$10$cxe6dyA0Vf7b7JymLF8Equ8y3qu10SpFB92YkM.1K122ktWqNaKK6', 'Kalana', 'Mihirangas', 'Admin', 'kalana@gmail.com', '123.jpg', '07835451', 'No 2752,Stage 3 ,Anuradhapura', '2019-04-03', 0, 0),
 (2, '$2y$10$6Cz190iUocVMstY9Rd7WROQcl1urmj4yFAbhVOlHjeiBVbDkpbxJe', 'Kalana', 'Mihiranga', 'Customer', 'kalanam214@gmail.com', 'test2.jpg', '0252235451', 'No 2752,Stage 3,Anuradhapura', '2019-04-04', 1, 0),
-(9, '$2y$10$jq5z.J9BX.Z6x23dHaxd4uqrTvYl2gLfnS6behT76rZQrtvac9ATm', 'Kalana', 'Mihiranga', 'Admin', 'kalanam217@gmail.com', '', '07180254221', '', '2019-06-04', 0, 0);
+(9, '$2y$10$jq5z.J9BX.Z6x23dHaxd4uqrTvYl2gLfnS6behT76rZQrtvac9ATm', 'Kalana', 'Mihiranga', 'Admin', 'kalanam217@gmail.com', '', '07180254221', '', '2019-06-04', 1, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `ak`
+--
+ALTER TABLE `ak`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `album`
 --
 ALTER TABLE `album`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `appoinment_data`
+--
+ALTER TABLE `appoinment_data`
+  ADD PRIMARY KEY (`datetime`);
 
 --
 -- Indexes for table `asd`
@@ -431,10 +538,22 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `mainslider`
+--
+ALTER TABLE `mainslider`
+  ADD PRIMARY KEY (`pid`);
+
+--
 -- Indexes for table `nature`
 --
 ALTER TABLE `nature`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`oid`);
 
 --
 -- Indexes for table `packages`
@@ -477,10 +596,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `ak`
+--
+ALTER TABLE `ak`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `asd`
@@ -519,10 +644,22 @@ ALTER TABLE `gallery`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `mainslider`
+--
+ALTER TABLE `mainslider`
+  MODIFY `pid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `nature`
 --
 ALTER TABLE `nature`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `packages`

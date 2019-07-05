@@ -36,12 +36,17 @@
                        <td><?php echo $row['package']; ?></td>
                        <td><?php echo $row['status']; ?></td>
                        <td><?php echo $row['description']; ?></td>
-                      <td> <?php if($row['status']!='Waiting for payment')
+                      <td>
+                       
+                         <?php if($row['payment']!=""){
+            echo "You have paid";
+        }else{
+                    if($row['status']=='Order Aproved.Wating for Payment')
                         { ?>
-                       <button type="button" onclick="location.href = './add.php';" >Add Payment</button> <?php } else { ?>
+                       <button type="button" onclick="location.href = './add.php?id=<?php echo $row['oid']; ?>';" >Add Payment</button> <?php } else { ?>
                        <button type="button" disabled>Add Payment</button>
-                       <?php }   ?>
-                       <?php echo $row['payment']; ?></td>
+                       <?php } }  ?>
+                       </td>
                        <td><a href="url_to_delete"  button type="button"  onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                        <td align="center" class="colcolar"><a href="./orders.php?delete=<?php echo $row['oid'];?>"  ><img src="./assets/delete.png"  ></a></td> </tr>
          <?php } ?>

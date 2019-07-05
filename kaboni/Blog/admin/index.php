@@ -181,11 +181,10 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
+            
           ['Month', 'Albums', 'Posts', 'Users'],
-          ['2014', 1000, 400, 200],
-          ['2015', 1170, 460, 250],
-          ['2016', 660, 1120, 300],
-          ['2017', 1030, 540, 350]
+          ['2014',<?Php echo $row1?>, 10, 20],
+          ['2017', 30, 40, 50]
         ]);
 
         var options = {

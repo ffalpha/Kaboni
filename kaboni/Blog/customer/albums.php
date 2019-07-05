@@ -23,10 +23,10 @@
     <tr>
         <?php
     $id =$_SESSION['email'];
-        $query="SELECT * FROM album where user = '$id'";
+        $query="SELECT * FROM album ";
         $result=mysqli_query($connect,$query);
         while($row=mysqli_fetch_assoc($result))
-        {  if($row['privacy']!="Private"){
+        {  if($row['privacy'] =="Public" || $row['user'] ==  $id){
         ?>
     
             <input type="hidden"  name="filename" value="<?php echo $row['name'];?>">

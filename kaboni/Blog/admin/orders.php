@@ -42,19 +42,25 @@
         $result=mysqli_query($connect,$query);
         while($row=mysqli_fetch_assoc($result))
         {  
-        ?><tr>
+        ?><form action="#" method="post"><tr>
+                       
                         <td><?php echo $row['oid']; ?></td>
+                            <input type="hidden"  name="oid" value="<?php echo $row['oid']; ?>">
                        <td><?php echo $row['date']; ?></td>
                        <td><?php echo $row['package']; ?></td>
                        <td><?php echo $row['status']; ?></td>
                        <td><?php echo $row['description']; ?></td>
-                      <td> <select name="role" id="post_cat"> 
+                      <td> <select name="status" id="post_cat"> 
                     <option value='Order Aproved.Wating for Payment'>Order Aproved.Wating for Payment</option>
+                     <option value='Payment Disappvroed'>Payment Disappvroed</option>
                     <option value='Payment Approved'>Payment Approved</option>
                     </select><br><br>
-                    <input type="submit"   name="changec" value="Change" class="btn btn-danger" /></td>
-                    <td></td>
+                    <input type="submit"   name="change" value="Change" class="btn btn-danger" /></td>
+                    <td>
+                    <?php if($row['payment']!=""){ ?>
+                   <a href="../customer/assets/payments/<?php echo $row['payment']; ?>"> <img src="../customer/assets/payments/<?php echo $row['payment']; ?>" width="100" ></a> <?php }else{ echo "Cusotmer havent paid yet";}?></td>
                      <td align="center" class="colcolar"><a href="./orders.php?delete=<?php echo $row['oid'];?>"  ><img src="images/delete.png"   ></a></td> </tr>
+                     </form>
          <?php } ?>
 
     </tbody>
@@ -66,6 +72,12 @@
 
         </div>
         <!-- /.container-fluid -->
-
-
-        <?php include "include/admin_footer.php"; ?>
+<?php if(isset($_POST['change'])){
+    $id=$_POST['oid'];
+    $state=$_POST['status'];
+    
+    $query="UPDATE orders SET status='{$state}' where oid={$id}";
+    $result=mysqli_query($connect,$query);
+    header("Location:orders.php");
+}
+ include "include/admin_footer.php"; ?>

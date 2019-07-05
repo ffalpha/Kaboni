@@ -66,9 +66,15 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Telephone number</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                                <input type="text" class="form-control" placeholder="City" value="<?php  echo $row['utnumber']?>">
                                             </div>
                                         </div>
+                                           <div class="form-group">
+        <?php  if ($row['uimage']==""){
+    echo "No image has set"; ?>         <input type="file"  class="btn btn-primary"  name="image"> <?php } ?> 
+        
+    </div>
+
                                      
                                     </div>
 
@@ -95,9 +101,9 @@
                                       </h4>
                                     </a>
                                 </div>
-                                <p class="description text-center"> "Lamborghini Mercy <br>
-                                                    Your chick she so thirsty <br>
-                                                    I'm in that two seat Lambo"
+                                <p class="description text-center"> <?php  echo $row['uemail']?><br>
+                                                   <?php  echo $row['address']?> <br>
+                                                   <?php  echo $row['utnumber']?>
                                 </p>
                             </div>
                             <hr>
